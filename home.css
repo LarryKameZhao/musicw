@@ -1,0 +1,27 @@
+
+
+section.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    background:rgb(255,0,0);
+    padding:20px 10px;
+}
+section.topbar .logo>svg{
+    width:142px;
+   height: 25px; 
+   vertical-align: top;
+}
+section.topbar > a {
+    color:white;
+    display:inline-block;
+    border:1px solid;
+    font-size: 15px;
+    padding:4px 10px;
+    line-height: 20px;
+    border-radius: 15px;
+}
+section.globaltABS{}
+section.playlists{}
+section.songs{}
+section.art{}
