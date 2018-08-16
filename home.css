@@ -1,4 +1,7 @@
 
+body{
+    font-size:15px;
+}
 
 section.topbar{
     display:flex;
@@ -8,20 +11,81 @@ section.topbar{
     padding:20px 10px;
 }
 section.topbar .logo>svg{
-    width:142px;
-   height: 25px; 
+    width:44.375vw;
+   height: 7.8125vw; 
    vertical-align: top;
 }
 section.topbar > a {
     color:white;
     display:inline-block;
-    border:1px solid;
-    font-size: 15px;
-    padding:4px 10px;
-    line-height: 20px;
-    border-radius: 15px;
+    font-size: 4.6875vw;
+    padding:1.5625vw 3.4375vw;
+    line-height: 6.25vw;
+    position: relative;
 }
-section.globaltABS{}
-section.playlists{}
+section.topbar >a::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:200%;
+    height:200%;
+    border:1px solid white;
+    border-radius:15.625vw;
+    transform-origin:0 0;
+    transform: scale(0.5);
+}
+
+section.playlists{
+
+}
+section.playlists > h2{
+    border-left:2px solid #D43C33;
+    font-size:17px;
+    line-height: 1;
+    padding-left:8px;
+}
 section.songs{}
 section.art{}
+
+.tabs{
+    display: flex;
+    border-bottom: 1px solid #cccccc;
+}
+.tabs >li{
+    width:33.333333%;
+    text-align: center;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.tabs >li>.text{
+    padding:10px 5px;
+    position: relative;
+    
+    top:1px;
+    
+}
+.tabs >li.active>.text{
+    color: #D43C33;
+    position: relative;
+    padding:10px 0;
+}
+.tabs >li.active>.text::after{
+    content:'';
+    position:absolute;
+    height: 2px;
+    background: #D43C33;
+    bottom: 1px;
+    left:0;
+    width: 100%;
+}
+.tab-content >li.active{
+    
+    display: block;
+}
+.tab-content >li{
+    display: none;
+}
