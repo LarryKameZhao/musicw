@@ -44,6 +44,29 @@ section.playlists > h2{
     font-size:17px;
     line-height: 1;
     padding-left:8px;
+    margin: 20px 0 8px;
+}
+section.playlists > ol.songs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 13px;
+}
+section.playlists > ol.songs>li{
+    width: 32.7%;
+    margin: 8px 0;
+}
+section.playlists > ol.songs>li p{
+    display:-webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: 18px;
+    height: 36px;
+    padding: 0 6px;
+}
+section.playlists >ol.songs>li img{
+    width:100%;
 }
 section.songs{}
 section.art{}
@@ -89,3 +112,4 @@ section.art{}
 .tab-content >li{
     display: none;
 }
+
