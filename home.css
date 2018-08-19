@@ -8,7 +8,16 @@ section.topbar{
     justify-content:space-between;
     align-items: center;
     background:rgb(255,0,0);
-    padding:20px 10px;
+    padding:17px 10px;
+    
+}
+.sticky{
+    position:fixed;
+    width:100%;
+    z-index:1;
+    top:0;
+    left:0;
+    background: white;
 }
 section.topbar .logo>svg{
     width:44.375vw;
@@ -35,9 +44,19 @@ section.topbar >a::after{
     transform-origin:0 0;
     transform: scale(0.5);
 }
-
+.noCollapse::before{
+    content:'';
+    display: table;
+}
+.noCollapse::after{
+    content:'';
+    display: table;
+}
 section.playlists{
-
+    
+}
+section.playlists::before{
+    
 }
 .sectionTitle{
     border-left:2px solid #D43C33;
@@ -126,6 +145,7 @@ section.art .link-wrapper >a {
 }
 
 .tabs{
+  
     display: flex;
     border-bottom: 1px solid #cccccc;
 }
@@ -137,6 +157,9 @@ section.art .link-wrapper >a {
     justify-content: center;
     align-items: center;
    
+}
+.tab-content{
+    margin-top: 105px;
 }
 .tabs >li>.text{
     padding:10px 5px;
