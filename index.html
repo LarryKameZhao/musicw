@@ -297,7 +297,10 @@
                 </section>
             </li>
             <li class="page-2">page2</li>
-            <li class="page-3">page3</li>
+            <li class="page-3">
+                <input id="search" type="text" style="background:#EBECEC;">
+                <ol class="searchResult"></ol>
+             </li>
         </div>
 
     </div>
@@ -317,8 +320,9 @@
             $li.addClass('active').siblings().removeClass('active');
             $('.tab-content').children().eq(index).addClass('active').siblings().removeClass('active');
 
-        })
+        });
 
+       
     </script>
 
     <script>
@@ -335,7 +339,35 @@ testObject.save({
   words: 'Hello World!'
 }).then(function(object) {
   alert('LeanCloud Rocks!');
-})
+});
+
+
+ $('input#search').on('input',function(e){
+
+            let $input = $(e.currentTarget);
+            let value = $input.val().trim();
+            if(value===''){return;}
+            var query = new AV.Query('Song');
+            query.contains('name',value);
+            query.find().then(function(results){
+                $('#searchResult').empty();
+                if(results.length===0){
+                    console.log('null');
+                }
+                else{
+                    for(var i=0;i<results.length;i++){
+                    let song = results[i].attributes;
+                    let li=`
+                    <li data-id="${song.objectId}">${song.name}-${song.singer}</li>
+                    `;
+                    $('#searchResult').append(li);
+                }
+                }
+                
+            })
+        });
+
+
     </script>
 </body>
 
