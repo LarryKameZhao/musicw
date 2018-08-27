@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="./vendors/loaders.css">
 </head>
 
 <body>
@@ -109,7 +110,12 @@
                 </section>
                 <section class="songs">
                     <h2 class="sectionTitle">最新音乐</h2>
-                    <ol class="list">
+                    <ol id="songs" class="list">
+                         
+                        <div id="songs-loading" class="loader-inner square-spin" style="margin:0 auto;width:50px;">
+                            <div></div>
+                          </div>                       
+                        
                         <li>
                             <h3>Friends
                                 <small>(Remix)</small>
@@ -122,115 +128,7 @@
                                 </svg>
                             </a>
                         </li>
-                        <li>
-                            <h3>丑八怪
-                                <small>(Remix)</small>
-                            </h3>
-                            <p>
-                                <i></i>薛之谦</p>
-                            <a class="playButton" href="
-                            https://music361.oss-cn-hangzhou.aliyuncs.com/songs/%E4%B8%91%E5%85%AB%E6%80%AA.m4a">
-                                <svg class="icon icon-play" aria-hidden="true">
-                                    <use xlink:href="#icon-play"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <h3>演员
-                                <small>(Remix)</small>
-                            </h3>
-                            <p>
-                                <i></i>薛之谦</p>
-                            <a class="playButton" href="http://music361.oss-cn-hangzhou.aliyuncs.com/songs/%E6%BC%94%E5%91%98.m4a">
-                                <svg class="icon icon-play" aria-hidden="true">
-                                    <use xlink:href="#icon-play"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <h3>Friends
-                                <small>(Remix)</small>
-                            </h3>
-                            <p>
-                                <i></i>justin</p>
-                            <a class="playButton" href="#">
-                                <svg class="icon icon-play" aria-hidden="true">
-                                    <use xlink:href="#icon-play"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <h3>Friends
-                                <small>(Remix)</small>
-                            </h3>
-                            <p>
-                                <i></i>justin</p>
-                            <a class="playButton" href="#">
-                                <svg class="icon icon-play" aria-hidden="true">
-                                    <use xlink:href="#icon-play"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <h3>Friends
-                                <small>(Remix)</small>
-                            </h3>
-                            <p>
-                                <i></i>justin</p>
-                            <a class="playButton" href="#">
-                                <svg class="icon icon-play" aria-hidden="true">
-                                    <use xlink:href="#icon-play"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <h3>Friends
-                                <small>(Remix)</small>
-                            </h3>
-                            <p>
-                                <i></i>justin</p>
-                            <a class="playButton" href="#">
-                                <svg class="icon icon-play" aria-hidden="true">
-                                    <use xlink:href="#icon-play"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <h3>Friends
-                                <small>(Remix)</small>
-                            </h3>
-                            <p>
-                                <i></i>justin</p>
-                            <a class="playButton" href="#">
-                                <svg class="icon icon-play" aria-hidden="true">
-                                    <use xlink:href="#icon-play"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <h3>Friends
-                                <small>(Remix)</small>
-                            </h3>
-                            <p>
-                                <i></i>justin</p>
-                            <a class="playButton" href="#">
-                                <svg class="icon icon-play" aria-hidden="true">
-                                    <use xlink:href="#icon-play"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <h3>Friends
-                                <small>(Remix)</small>
-                            </h3>
-                            <p>
-                                <i></i>justin</p>
-                            <a class="playButton" href="#">
-                                <svg class="icon icon-play" aria-hidden="true">
-                                    <use xlink:href="#icon-play"></use>
-                                </svg>
-                            </a>
-                        </li>
+
                     </ol>
                 </section>
                 <section class="art">
@@ -332,21 +230,42 @@
         // var SongObject = AV.Object.extend('Song');
         // var SongObject = new SongObject();
         // SongObject.save({
-        //     singer: '薛之谦',
-        //     name:'演员'
+        //     singer: 'Tomine Harket',
+        //     name:'darkside'
 
         // }).then(function (object) {
-        //     alert('歌曲保存成功');
+        //     alert('歌保存成功');
         // });
+
+        let $olSongs = $('ol#songs');
+
         var query = new AV.Query('Song');
         query.find().then(function (results) {
-            let array = results;
-            for (var i = 0; i < array.length; i++) {
-                console.log(array[i].attributes);
+            $('#songs-loading').remove()
+            for (var i = 0; i < results.length; i++) {
+                let song = results[i].attributes;
+                let li = `
+                <li>
+                            <h3>
+                                ${song.name}
+                            </h3>
+                            <p>
+                                ${song.singer}</p>
+                            <a class="playButton" href="#">
+                                <svg class="icon icon-play" aria-hidden="true">
+                                    <use xlink:href="#icon-play"></use>
+                                </svg>
+                            </a>
+                        </li>
+                
+                `;
+                $olSongs.append(li);
             }
         }, function (error) {
 
         })
+
+
 
 
 
