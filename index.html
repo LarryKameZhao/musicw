@@ -111,11 +111,11 @@
                 <section class="songs">
                     <h2 class="sectionTitle">最新音乐</h2>
                     <ol id="songs" class="list">
-                         
+
                         <div id="songs-loading" class="loader-inner square-spin" style="margin:0 auto;width:50px;">
                             <div></div>
-                          </div>                       
-                        
+                        </div>
+
                         <li>
                             <h3>Friends
                                 <small>(Remix)</small>
@@ -193,7 +193,7 @@
             <li class="page-2">page2</li>
             <li class="page-3">
                 <input id="search" type="text" style="background:#EBECEC;">
-                <ol class="searchResult"></ol>
+                <ol id="searchResult"></ol>
             </li>
         </div>
 
@@ -262,7 +262,31 @@
                 $olSongs.append(li);
             }
         }, function (error) {
+            alert('获取歌曲失败')
+        })
 
+        $('input#search').on('input', function (e) {
+            let $input = $(e.currentTarget);
+            let value = $input.val().trim();
+            if(value === ''){return;}
+            var query = new AV.Query('Song');
+            query.contains('name', value)
+            query.find().then(function (results) {
+                $('#searchResult').empty();
+                if (results.length === 0) {
+                    $('#searchResult').html('没有结果')
+                }
+                else {
+                    for (var i = 0; i < results.length; i++) {
+                        let song = results[i].attributes;
+                        let li = `
+                    <li data-id="${song.objectId}">${song.name} - ${song.singer} <li>
+                  `;
+                        $('#searchResult').append(li);
+                    }
+                }
+
+            })
         })
 
 
