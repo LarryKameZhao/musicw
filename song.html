@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .page{
+            height: 100vh;
+            position:relative;
+            
+
+        }
+        .page::before{
+            content:'';
+            position:absolute;
+            width:100%;
+            height: 100%;
+            top:0;
+            left:0;
+            z-index:-1;
+            background: transparent url(//i.loli.net/2018/08/28/5b855ded57bda.jpg) no-repeat center;
+            background-size: cover;
+            filter:blur(90px) brightness(0.2);
+            
+        }
+        section.pointer{}
+        section.disk{
+            margin-top:20px;
+        }
+        section.disk .circle{
+            width:248px;
+            height: 248px;
+            margin:0 auto;
+            position:relative;
+        }
+        section.disk .circle::before{
+            content:'';
+            position:absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            background: transparent url(//i.loli.net/2018/08/29/5b85d0f296b7d.png) no-repeat center;
+            background-size: cover;
+            
+        }
+        section.disk .circle > img{
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-left:-75px;
+            margin-top:-75px;
+            border-radius: 50%;
+        }
+        section.disk .circle.playing >img,
+        section.disk .circle.playing::after
+        {
+            animation: spin 7s linear infinite;
+        }
+
+        section.disk .circle.playing.pause >img,
+        section.disk .circle.playing.pause >img::after
+        {
+            animation-play-state: paused;
+        }
+        @keyframes spin{
+            0%{
+                transform:  rotateZ(0deg);
+            }
+            100%{
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <section class="pointer"></section>
+        <section class="disk">
+            <div class="circle playing">
+                <img src="//i.loli.net/2018/08/28/5b855ded57bda.jpg" alt="" width=150 height=150>
+            </div>
+        </section>
+        <section class="lyric"></section>
+        <section class="actions"></section>
+    </div>
+</body>
+</html>
