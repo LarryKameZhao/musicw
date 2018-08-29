@@ -5,34 +5,38 @@
   background:transparent url(//i.loli.net/2018/08/28/5b855ded57bda.jpg) no-repeat center;
   background-size: cover;
 }
+
+
+
+
 .disc-container{
     position: relative;
 }
-.disc-container .pointer{
-    width:24vw;
-    position: absolute;
-    border:1px solid red;
-    left: 50%;
-    
-}
+
+
 .disc-container .disc{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:14vw;
+    margin-top:18vw;
 }
-.disc-container .ring{
-    width:72vw;
+
+@keyframes circle{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
-.disc-container .light{
-    width:72vw;
-    position: absolute;
-}
-.disc-container .cover{
-    width: 60vw;
-    position: absolute;
-    display: none;
-}
+.disc-container .pointer{width: 24vw; position: absolute; left: 45vw; }
+.disc-container .disc{display: flex; justify-content: center; align-items: center; margin-top: 18vw; }
+.disc-container .ring{width: 72vw; } 
+.disc-container .light{width: 72vw; position: absolute; }
+.disc-container .cover{width: 44.5vw; position: absolute; border-radius: 50%;  
+    animation: circle 20s infinite linear; 
+    
+  }
 .song-description{
 
 }
