@@ -207,6 +207,7 @@
 
     <script src="./vendors/jquery.min.js"></script>
     <script src="./vendors/av-min.js"></script>
+    <script src="./scripts/av.js"></script>
     <script>
         $('.tabs').on('click', 'li', function (e) {
             let $li = $(e.currentTarget);
@@ -220,13 +221,7 @@
     </script>
 
     <script>
-        var APP_ID = 'mLdqTVjR60wnEP0ffn6M0zoY-gzGzoHsz';
-        var APP_KEY = 'Fa6BV3VJ4MzholtilKVTlp9O';
-
-        AV.init({
-            appId: APP_ID,
-            appKey: APP_KEY
-        });
+       
         // var SongObject = AV.Object.extend('Song');
         // var SongObject = new SongObject();
         // SongObject.save({
