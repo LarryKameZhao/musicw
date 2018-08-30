@@ -38,6 +38,29 @@
     
   }
 .song-description{
+    color:#AEABAC;
+    text-align: center;
+    line-height: 2;
+    margin-top:20px;
+    flex-grow: 1;
+
+}
+.song-description h1{
+    color:white;
+    font-size:20px;
+    
+    
+}
+.song-description .lyric{
+    height: 72px;
+    border:1px solid red;
+    overflow: hidden;
+}
+.song-description p{
+    font-size: 18px;
+    line-height: 24px;
+}
+.song-description p.active{
 
 }
 .page > .links{
