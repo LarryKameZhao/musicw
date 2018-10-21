@@ -7,19 +7,23 @@ $('.tabs').on('click', 'li', function (e) {
 
 });
 
-let mySwiper = new Swiper ('.swiper-container', {               
-  loop: true,           
-  // If we need pagination
-  pagination: {
-  el: '.swiper-pagination',
-  },           
-  // And if we need scrollbar
-  scrollbar: {
-  el: '.swiper-scrollbar',
-  },
-  autoplay: {
-  delay: 1500,
-  stopOnLastSlide: false,
-  disableOnInteraction: true,
-  }
-})()
+function startSwiper () {
+  let mySwiper = new Swiper ('.swiper-container', {               
+    loop: true,           
+    // If we need pagination
+    pagination: {
+    el: '.swiper-pagination',
+    },           
+    // And if we need scrollbar
+    scrollbar: {
+    el: '.swiper-scrollbar',
+    },
+    autoplay: {
+    delay: 1500,
+    stopOnLastSlide: false,
+    disableOnInteraction: true,
+    }
+  })
+}
+
+startSwiper()
