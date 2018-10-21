@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,36 +9,47 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="song.css">
 </head>
+
 <body>
     <div class="page">
-            <div class="disc-container">
-                    
-                    <img class="pointer"  src="//i.loli.net/2018/08/30/5b871de16cf0a.png" alt="pointer">
-                    
-                    <div class="disc">
-                            
-                        <img src="//i.loli.net/2018/08/30/5b871de1812e0.png" alt="" class="ring">
-                        <img src="//i.loli.net/2018/08/30/5b871de14607d.png" alt="" class="light">
-                        <img src="//i.loli.net/2018/08/28/5b855ded57bda.jpg" alt="" class="cover">
-                    </div>
+        <div class="disc-container">
+
+            <img class="pointer" src="//i.loli.net/2018/08/30/5b871de16cf0a.png" alt="pointer">
+
+            <div class="disc">
+                <div class="icon-wrapper">
+                    <svg class="icon icon-play1">
+                        <use xlink:href="#icon-play1"></use>
+                    </svg>
+                    <svg class="icon icon-pause">
+                        <use xlink:href="#icon-pause"></use>
+                    </svg>
                 </div>
 
-                <div class="song-description">
-                    <h1>丑八怪</h1>
-                    <div class="lyric">
-                         <div class="lines"></div>
-                    </div>
-                    
-                    
-                </div>
+                <img src="//i.loli.net/2018/08/30/5b871de1812e0.png" alt="" class="ring">
+                <img src="//i.loli.net/2018/08/30/5b871de14607d.png" alt="" class="light">
+                <img src="//i.loli.net/2018/08/28/5b855ded57bda.jpg" alt="" class="cover">
+            </div>
+        </div>
 
-                <div class="links">
-                    <a href="">打开</a>
-                    <a href="">下载</a>
-                </div>
+        <div class="song-description">
+            <h1>丑八怪</h1>
+            <div class="lyric">
+                <div class="lines"></div>
+            </div>
+
+
+        </div>
+
+        <div class="links">
+            <a href="">打开</a>
+            <a class="main" href="">下载</a>
+        </div>
     </div>
-    
+
+    <script src="//at.alicdn.com/t/font_796746_rjked7ju4.js"></script>
     <script src="./vendors/jquery.min.js"></script>
     <script src="./playing.js"></script>
 </body>
+
 </html>

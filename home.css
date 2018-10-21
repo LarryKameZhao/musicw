@@ -65,6 +65,20 @@ section.playlists::before{
     padding-left:8px;
     margin: 20px 0 8px;
 }
+section.swiper{
+    position: relative;
+    bottom:0.2vw;
+}
+
+.swiper-container {
+    width: 100vw;
+    height: 45.8vw;
+}
+
+.swiper-container img{
+    width: 100vw;
+    height: 45.8vw;
+}
 
 section.playlists > ol.songs{
     display: flex;
